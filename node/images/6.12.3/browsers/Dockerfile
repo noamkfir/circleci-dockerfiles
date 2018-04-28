@@ -61,14 +61,14 @@ RUN curl --silent --show-error --location --fail --retry 3 --output /tmp/google-
            "/opt/google/chrome/google-chrome" \
       && google-chrome --version
 
-RUN export CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 http://chromedriver.storage.googleapis.com/LATEST_RELEASE) \
-      && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
-      && cd /tmp \
-      && unzip chromedriver_linux64.zip \
-      && rm -rf chromedriver_linux64.zip \
-      && sudo mv chromedriver /usr/local/bin/chromedriver \
-      && sudo chmod +x /usr/local/bin/chromedriver \
-      && chromedriver --version
+# RUN export CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 http://chromedriver.storage.googleapis.com/LATEST_RELEASE) \
+#       && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
+#       && cd /tmp \
+#       && unzip chromedriver_linux64.zip \
+#       && rm -rf chromedriver_linux64.zip \
+#       && sudo mv chromedriver /usr/local/bin/chromedriver \
+#       && sudo chmod +x /usr/local/bin/chromedriver \
+#       && chromedriver --version
 
 # start xvfb automatically to avoid needing to express in circle.yml
 ENV DISPLAY :99
